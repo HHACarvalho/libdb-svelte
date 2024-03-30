@@ -3,7 +3,23 @@
     import Sidebar from "$lib/sidebar.svelte";
 </script>
 
-<Sidebar />
-<main>
-    <slot />
-</main>
+<svelte:head>
+    <title>LibDB</title>
+</svelte:head>
+
+<div>
+    <Sidebar />
+    <main>
+        <slot />
+    </main>
+</div>
+
+<style>
+    div {
+        display: flex;
+    }
+
+    main {
+        padding: 40px;
+    }
+</style>

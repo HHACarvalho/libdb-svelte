@@ -1,39 +1,50 @@
 <div class="sidebar">
-    <div class="logo">LibDB</div>
+    <div class="logo"><a href="/">LibDB</a></div>
     <nav>
-        <a href="/">Books</a>
-        <a href="/">Book Entries</a>
-        <a href="/">Authors</a>
-        <a href="/">Borrows</a>
-        <a href="/">Members</a>
+        <a href="/authors">Authors</a>
+        <a href="/book_entries">Book Entries</a>
+        <a href="/books">Books</a>
+        <a href="/borrows">Borrows</a>
+        <a href="/members">Members</a>
     </nav>
-    <div class="options">Hugo Carvalho</div>
+    <div class="options">
+        <img src="account.png" alt="account">
+        Hugo Carvalho
+    </div>
 </div>
 
 <style>
     .sidebar {
         display: flex;
         flex-direction: column;
-
-        height: 100vh;
-        max-width: 250px;
         background-color: var(--background-blue);
+        height: 100vh;
     }
 
     .logo {
-        font-size: 4em;
         padding: 20px;
     }
 
+    .logo a {
+        font-size: 4em;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    .logo a:hover {
+        color: var(--cyan);
+    }
+
     nav {
-        flex-grow: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        flex-grow: 1;
     }
 
     nav a {
         padding: 15px;
+        text-align: center;
         transition: 0.3s;
     }
 
@@ -44,5 +55,12 @@
 
     .options {
         padding: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .options img {
+        height: 35px;
+        margin-right: 10px;
     }
 </style>

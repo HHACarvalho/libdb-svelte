@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Gabarito');
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@500&display=swap');
 
 :root {
     --background-blue: #0B0C10;
@@ -11,8 +12,10 @@
 
 * {
     margin: 0;
+    border: 0;
     font-family: 'Gabarito', sans-serif;
     color: var(--text-white);
+    font-weight: 400;
 }
 
 body {
