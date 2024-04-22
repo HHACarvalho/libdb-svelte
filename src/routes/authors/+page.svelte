@@ -1,8 +1,7 @@
 <script>
-    import Item from "$lib/item.svelte";
+    import Item from "$lib/item-author.svelte";
 
     export let data;
-    console.log(data);
 </script>
 
 <div class="header">
@@ -15,7 +14,7 @@
     {#if data.error}
         <h1>{data.error}</h1>
     {:else}
-        {#each data.authorArray.data.list as obj}
+        {#each data.array as obj}
             <Item id={obj.id} imageUrl={obj.imageUrl} description={obj.name} />
         {/each}
     {/if}

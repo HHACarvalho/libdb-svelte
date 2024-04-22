@@ -12,7 +12,7 @@ export async function get(url) {
             return { error: res.statusText + ": " + res.data.error }
         }
 
-        return { data: res.data }
+        return res.data
     } catch (error) {
         return { error: "Internal Server Error: Network Error" }
     }
