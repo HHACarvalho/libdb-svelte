@@ -2,30 +2,28 @@
     export let id;
     export let imageUrl;
     export let description;
-    //export let authorName;
-    //export let authorId;
+    export let authorId;
+    export let authorName;
 </script>
 
 <div class="item shadow">
+    <div class="author-wrapper">
+        <a href="/author/{authorId}">{authorName}</a>
+    </div>
     <a href="/book/{id}">
         <div class="image-wrapper">
             <img src={imageUrl} alt={id} />
         </div>
-        <div class="text-wrapper">
+        <div class="title-wrapper">
             <p>{description}</p>
         </div>
     </a>
-<!--     <a href="/book/{id}">
-        <div style="padding: 8px 0;">
-            <p>{"J.R.R. Tolkien"}</p>
-        </div>
-    </a> -->
 </div>
 
 <style>
     .item {
         width: 200px;
-        height: calc(230px + 2.6em + 16px);
+        background-color: var(--dark-blue);
         border-radius: 10px;
         transition: 0.2s;
     }
@@ -34,38 +32,49 @@
         transform: scale(1.05);
     }
 
-    .image-wrapper {
+    .author-wrapper {
         display: flex;
         justify-content: center;
+        padding: 8px 16px;
+    }
+
+    .author-wrapper a {
+        transition: 0.2s;
+    }
+
+    .author-wrapper a:hover {
+        color: var(--cyan);
+    }
+
+    .image-wrapper {
         width: 200px;
         height: 230px;
+        display: flex;
+        justify-content: center;
     }
 
-    img {
+    .image-wrapper img {
         height: 100%;
-        border-radius: 10px 10px 0 0;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
     }
 
-    .text-wrapper {
+    .title-wrapper {
         height: 2.6em;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--dark-blue);
-        border-radius: 0 0 10px 10px;
-        padding: 8px 0;
+        padding: 8px 16px;
     }
 
-    p {
-        max-height: 2.6em;
+    .title-wrapper p {
         line-height: 1.3em;
-        padding: 0 16px;
         text-align: center;
 
         display: -webkit-box;
-        text-overflow: ellipsis;
-        overflow: hidden;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 </style>
