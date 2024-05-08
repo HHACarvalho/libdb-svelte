@@ -43,7 +43,7 @@
     }
 
     .author-wrapper a:hover {
-        color: var(--cyan);
+        color: var(--light-purple);
     }
 
     .image-wrapper {

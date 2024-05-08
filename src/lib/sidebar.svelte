@@ -32,7 +32,7 @@
     }
 
     .logo a:hover {
-        color: var(--cyan);
+        color: var(--light-purple);
     }
 
     nav {
@@ -49,7 +49,7 @@
     }
 
     nav a:hover {
-        background-color: var(--cyan);
+        background-color: var(--light-purple);
         color: black;
     }
 
