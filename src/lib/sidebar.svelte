@@ -28,11 +28,6 @@
     .logo a {
         font-size: 4em;
         font-weight: 500;
-        transition: 0.3s;
-    }
-
-    .logo a:hover {
-        color: var(--light-purple);
     }
 
     nav {

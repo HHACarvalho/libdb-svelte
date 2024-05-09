@@ -38,14 +38,6 @@
         padding: 8px 16px;
     }
 
-    .author-wrapper a {
-        transition: 0.2s;
-    }
-
-    .author-wrapper a:hover {
-        color: var(--light-purple);
-    }
-
     .image-wrapper {
         width: 200px;
         height: 230px;
