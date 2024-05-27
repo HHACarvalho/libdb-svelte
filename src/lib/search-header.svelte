@@ -1,5 +1,6 @@
 <script>
     export let pageTitle;
+    export let queryParam;
     let searchValue = "";
 </script>
 
@@ -7,7 +8,7 @@
     <a href="/" class="return"><img src="return.png" alt="return" /></a>
     <h1>{pageTitle}</h1>
     <form>
-        <input bind:value={searchValue} name="title" placeholder="Search" />
+        <input bind:value={searchValue} name={queryParam} placeholder="Search" />
     </form>
     <a href="/">Advanced Search</a>
 </div>

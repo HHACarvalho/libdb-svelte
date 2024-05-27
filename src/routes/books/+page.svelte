@@ -5,7 +5,7 @@
     export let data;
 </script>
 
-<SearchHeader pageTitle={"Books"} />
+<SearchHeader pageTitle={"Books"} queryParam={"title"} />
 
 <div class="item-display">
     {#if data.error}

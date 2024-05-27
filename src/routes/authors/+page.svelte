@@ -1,8 +1,11 @@
 <script>
+    import SearchHeader from "$lib/search-header.svelte";
     import Item from "$lib/item-author.svelte";
 
     export let data;
 </script>
+
+<SearchHeader pageTitle={"Authors"} queryParam={"name"} />
 
 <div class="item-display">
     {#if data.error}
