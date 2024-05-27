@@ -17,3 +17,7 @@ export async function get(url) {
         return { error: "Internal Server Error: Network Error" }
     }
 }
+
+export function isNullOrEmpty(str) {
+    return str === null || str === '';
+}

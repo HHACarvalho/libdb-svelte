@@ -1,11 +1,14 @@
 <script>
     export let pageTitle;
+    let searchValue = "";
 </script>
 
 <div class="header">
     <a href="/" class="return"><img src="return.png" alt="return" /></a>
     <h1>{pageTitle}</h1>
-    <input type="text" name="authors" id="authors" placeholder="Search" />
+    <form>
+        <input bind:value={searchValue} name="title" placeholder="Search" />
+    </form>
     <a href="/">Advanced Search</a>
 </div>
 
