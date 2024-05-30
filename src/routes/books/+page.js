@@ -1,6 +1,7 @@
 import { queryResult } from '$lib/utils';
-import { BOOK_BASE_URL, BOOK_QUERY_URL } from '$lib/constants';
 
 export async function load({ url }) {
-    return await queryResult(BOOK_BASE_URL, BOOK_QUERY_URL, url.searchParams, ['title']);
+	return await queryResult(import.meta.env.VITE_BOOK_BASE_URL, import.meta.env.VITE_BOOK_QUERY_URL, url.searchParams, [
+		'title'
+	]);
 }
