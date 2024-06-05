@@ -1,14 +1,21 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
 	export let pageTitle;
 	export let queryParam;
 	let searchValue = '';
+
+	function searchSubmit() {
+		dispatch('searchSubmit', searchValue);
+	}
 </script>
 
 <div class="header">
 	<a href="/" class="return"><img src="return.png" alt="return" /></a>
 	<h1>{pageTitle}</h1>
-	<form>
-		<input bind:value={searchValue} name={queryParam} placeholder="Search" />
+	<form on:submit|preventDefault={searchSubmit}>
+		<input bind:value={searchValue} name={queryParam} placeholder="Title" />
 	</form>
 	<a href="/">Advanced Search</a>
 </div>

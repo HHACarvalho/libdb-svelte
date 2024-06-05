@@ -1,10 +1,5 @@
-import { queryResult } from '$lib/utils';
+import { get } from '$lib/utils';
 
-export async function load({ url }) {
-	return await queryResult(
-		import.meta.env.VITE_AUTHOR_BASE_URL,
-		import.meta.env.VITE_AUTHOR_QUERY_URL,
-		url.searchParams,
-		['name']
-	);
+export async function load() {
+	return await get(import.meta.env.VITE_AUTHOR_BASE_URL);
 }

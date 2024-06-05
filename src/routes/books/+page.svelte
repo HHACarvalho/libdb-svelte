@@ -1,11 +1,20 @@
 <script>
+	import { customQuery } from '$lib/utils';
 	import SearchHeader from '$lib/search-header.svelte';
 	import Item from '$lib/item-book.svelte';
 
 	export let data;
+	let pageNumber = 1;
+	let pageSize = 14;
+	let queryParams = {};
+
+	async function simpleSearchSubmit(event) {
+		queryParams['title'] = event.detail;
+		data = await customQuery(import.meta.env.VITE_BOOK_QUERY_URL, pageNumber, pageSize, queryParams);
+	}
 </script>
 
-<SearchHeader pageTitle={'Books'} queryParam={'title'} />
+<SearchHeader on:searchSubmit={simpleSearchSubmit} pageTitle={'Books'} queryParam={'title'} />
 
 <div class="item-display">
 	{#if data.error}

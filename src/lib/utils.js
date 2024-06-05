@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-async function get(url) {
+export async function get(url) {
 	try {
 		const res = await axios.get(url, {
 			validateStatus: function (status) {
@@ -18,26 +18,17 @@ async function get(url) {
 	}
 }
 
-export async function queryResult(baseUrl, queryUrl, urlParams, domainParams) {
-	if (urlParams.size == 0) {
-		return await get(baseUrl);
-	}
-
+export async function customQuery(queryUrl, pageNumber, pageSize, queryParams) {
 	let customUrl = queryUrl;
-	let paramValue = '';
 
-	paramValue = urlParams.get('pageNumber');
-	customUrl += 'pageNumber=' + (!isNullOrEmpty(paramValue) ? paramValue : import.meta.env.VITE_DEFAULT_PAGE_NUMBER);
+	customUrl += 'pageNumber=' + pageNumber;
+	customUrl += '&pageSize=' + pageSize;
 
-	paramValue = urlParams.get('pageSize');
-	customUrl += '&pageSize=' + (!isNullOrEmpty(paramValue) ? paramValue : import.meta.env.VITE_DEFAULT_PAGE_SIZE);
-
-	domainParams.forEach((e) => {
-		paramValue = urlParams.get(e);
+	for (let [param, paramValue] of Object.entries(queryParams)) {
 		if (!isNullOrEmpty(paramValue)) {
-			customUrl += '&' + e + '=' + paramValue;
+			customUrl += '&' + param + '=' + paramValue;
 		}
-	});
+	}
 
 	return await get(customUrl);
 }
