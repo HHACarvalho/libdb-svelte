@@ -1,25 +1,25 @@
 <script>
-    import "$lib/global.css";
-    import Sidebar from "$lib/sidebar.svelte";
+	import '$lib/global.css';
+	import Sidebar from '$lib/sidebar.svelte';
 </script>
 
 <svelte:head>
-    <title>LibDB</title>
+	<title>LibDB</title>
 </svelte:head>
 
 <div>
-    <Sidebar />
-    <main>
-        <slot />
-    </main>
+	<Sidebar />
+	<main>
+		<slot />
+	</main>
 </div>
 
 <style>
-    div {
-        display: flex;
-    }
+	div {
+		display: flex;
+	}
 
-    main {
-        padding: 40px;
-    }
+	main {
+		padding: 40px;
+	}
 </style>
