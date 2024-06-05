@@ -1,12 +1,12 @@
 <script>
 	import { customQuery } from '$lib/utils';
 	import SearchHeader from '$lib/search-header.svelte';
-	import Item from '$lib/item-book.svelte';
+	import ItemDisplay from '$lib/item-display.svelte';
 	import Pagination from '$lib/pagination.svelte';
 
 	export let data;
-	let pageNumber = 1;
-	let pageSize = 14;
+	let pageNumber = Number(import.meta.env.VITE_DEFAULT_PAGE_NUMBER);
+	let pageSize = Number(import.meta.env.VITE_DEFAULT_PAGE_SIZE);
 	let queryParams = {};
 
 	function simpleSearchSubmit(event) {
@@ -24,31 +24,8 @@
 	}
 </script>
 
-<SearchHeader on:searchSubmit={simpleSearchSubmit} pageTitle={'Books'} queryParam={'title'} />
+<SearchHeader on:searchSubmit={simpleSearchSubmit} pageTitle={'Books'} queryParam={'title'} placeholder={'Title'} />
 
-<div class="item-display">
-	{#if data.error}
-		<h1>{data.error}</h1>
-	{:else}
-		{#each data.array as obj}
-			<Item
-				id={obj.id}
-				imageUrl={obj.imageUrl}
-				description={obj.title}
-				authorId={obj.author.id}
-				authorName={obj.author.name}
-			/>
-		{/each}
-	{/if}
-</div>
+<ItemDisplay {data} type={'book'} />
 
 <Pagination on:pageSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />
-
-<style>
-	.item-display {
-		margin-top: 25px;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 20px;
-	}
-</style>
