@@ -15,6 +15,8 @@
 
 <style>
 	.sidebar {
+		position: sticky;
+		top: 0;
 		display: flex;
 		flex-direction: column;
 		background-color: var(--background-blue);
