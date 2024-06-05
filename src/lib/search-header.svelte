@@ -4,6 +4,7 @@
 
 	export let pageTitle;
 	export let queryParam;
+	export let placeholder;
 	let searchValue = '';
 
 	function searchSubmit() {
@@ -15,7 +16,7 @@
 	<a href="/" class="return"><img src="return.png" alt="return" /></a>
 	<h1>{pageTitle}</h1>
 	<form on:submit|preventDefault={searchSubmit}>
-		<input bind:value={searchValue} name={queryParam} placeholder="Title" />
+		<input bind:value={searchValue} name={queryParam} {placeholder} />
 	</form>
 	<a href="/">Advanced Search</a>
 </div>
