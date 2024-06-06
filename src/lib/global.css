@@ -2,35 +2,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@500&display=swap');
 
 :root {
-    --background-blue: #0B0C10;
-    --light-purple: #5f61ff;
-    --dark-blue: #1f2833;
-    --darker-blue: #161c24;
-    --text-white: #f5f5f5;
+	--background-blue: #0b0c10;
+	--light-purple: #5f61ff;
+	--dark-blue: #1f2833;
+	--darker-blue: #161c24;
+	--text-white: #f5f5f5;
 }
 
 * {
-    margin: 0;
-    border: 0;
-    padding: 0;
-    color: var(--text-white);
-    font-family: 'Gabarito', sans-serif;
-    font-weight: 400;
+	margin: 0;
+	border: 0;
+	padding: 0;
+	color: var(--text-white);
+	font-family: 'Gabarito', sans-serif;
+	font-weight: 400;
 }
 
 body {
-    background-color: var(--darker-blue);
+	background: var(--darker-blue);
 }
 
 a {
-    text-decoration: none;
-    transition: 0.3s;
+	text-decoration: none;
+	transition: 0.3s;
 }
 
 a:hover {
-    color: var(--light-purple);
+	color: var(--light-purple);
 }
 
 .shadow {
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--darker-blue);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--background-blue);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--dark-blue);
 }
