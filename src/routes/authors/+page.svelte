@@ -1,6 +1,6 @@
 <script>
 	import { customQuery } from '$lib/utils';
-	import SearchHeader from '$lib/search-header.svelte';
+	import Search from '$lib/search.svelte';
 	import ItemDisplay from '$lib/item-display.svelte';
 	import Pagination from '$lib/pagination.svelte';
 
@@ -24,7 +24,7 @@
 	}
 </script>
 
-<SearchHeader on:searchSubmit={simpleSearchSubmit} pageTitle={'Authors'} queryParam={'name'} placeholder={'Name'} />
+<Search on:searchSubmit={simpleSearchSubmit} pageTitle={'Authors'} queryParam={'name'} placeholder={'Name'} />
 
 <ItemDisplay {data} type={'author'} />
 
