@@ -5,47 +5,61 @@
 	export let pageTitle;
 	export let queryParam;
 	export let placeholder;
-	let searchValue = '';
+	let searchValue;
+	let pageSize;
 
 	function searchSubmit() {
 		dispatch('searchSubmit', searchValue);
 	}
+
+	function pageSizeSubmit() {
+		dispatch('pageSizeSubmit', pageSize);
+	}
 </script>
 
 <div class="header">
-	<a href="/" class="return"><img src="return.png" alt="return" /></a>
-	<h1>{pageTitle}</h1>
-	<form on:submit|preventDefault={searchSubmit}>
-		<input bind:value={searchValue} name={queryParam} {placeholder} />
-	</form>
-	<a href="/">Advanced Search</a>
+	<div>
+		<h1>{pageTitle}</h1>
+		<form on:submit|preventDefault={searchSubmit}>
+			<input bind:value={searchValue} name={queryParam} {placeholder} />
+		</form>
+	</div>
+	<div>
+		<span>Page size:</span>
+		<select bind:value={pageSize} on:change={pageSizeSubmit}>
+			<option value="14">14</option>
+			<option value="28">28</option>
+			<option value="56">56</option>
+		</select>
+	</div>
 </div>
 
 <style>
 	.header {
 		display: flex;
+		justify-content: space-between;
+	}
+
+	.header div {
+		display: flex;
 		align-items: center;
 		gap: 30px;
 	}
 
-	.return {
-		width: 38px;
-		height: 38px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 20px;
-		background-color: var(--dark-blue);
-	}
-
-	img {
-		height: 1em;
-	}
-
 	input {
-		height: 38px;
-		padding: 0 20px;
-		background-color: var(--dark-blue);
+		padding: 10px 20px;
+		background-color: var(--background-blue);
 		border-radius: 30px;
+	}
+
+	input::placeholder {
+		color: rgb(225, 225, 225);
+	}
+
+	select {
+		padding: 10px;
+		background-color: var(--background-blue);
+		border-radius: 5px;
+		border: 0;
 	}
 </style>
