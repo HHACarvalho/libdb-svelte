@@ -13,33 +13,33 @@
 </script>
 
 <div class="pagination">
-	<button on:click={pageSubmit(pageNumber - 1)} disabled={pageNumber == 1}
+	<button on:click={pageSubmit(pageNumber - 1)} disabled={pageNumber == 1} class="shadow"
 		><img src="arrow-left.png" alt="arrow-left" /></button
 	>
 
 	{#if pageNumber == 1}
-		<button on:click={pageSubmit(pageNumber)}>{pageNumber}</button>
+		<button on:click={pageSubmit(pageNumber)} class="shadow">{pageNumber}</button>
 		{#if pageNumber + 1 <= maxPageNumber}
-			<button on:click={pageSubmit(pageNumber + 1)}>{pageNumber + 1}</button>
+			<button on:click={pageSubmit(pageNumber + 1)} class="shadow">{pageNumber + 1}</button>
 		{/if}
 		{#if pageNumber + 2 <= maxPageNumber}
-			<button on:click={pageSubmit(pageNumber + 2)}>{pageNumber + 2}</button>
+			<button on:click={pageSubmit(pageNumber + 2)} class="shadow">{pageNumber + 2}</button>
 		{/if}
 	{:else if pageNumber == maxPageNumber}
 		{#if pageNumber - 2 >= 1}
-			<button on:click={pageSubmit(pageNumber - 2)}>{pageNumber - 2}</button>
+			<button on:click={pageSubmit(pageNumber - 2)} class="shadow">{pageNumber - 2}</button>
 		{/if}
 		{#if pageNumber - 1 >= 1}
-			<button on:click={pageSubmit(pageNumber - 1)}>{pageNumber - 1}</button>
+			<button on:click={pageSubmit(pageNumber - 1)} class="shadow">{pageNumber - 1}</button>
 		{/if}
-		<button on:click={pageSubmit(pageNumber)}>{pageNumber}</button>
+		<button on:click={pageSubmit(pageNumber)} class="shadow">{pageNumber}</button>
 	{:else}
-		<button on:click={pageSubmit(pageNumber - 1)}>{pageNumber - 1}</button>
-		<button on:click={pageSubmit(pageNumber)}>{pageNumber}</button>
-		<button on:click={pageSubmit(pageNumber + 1)}>{pageNumber + 1}</button>
+		<button on:click={pageSubmit(pageNumber - 1)} class="shadow">{pageNumber - 1}</button>
+		<button on:click={pageSubmit(pageNumber)} class="shadow">{pageNumber}</button>
+		<button on:click={pageSubmit(pageNumber + 1)} class="shadow">{pageNumber + 1}</button>
 	{/if}
 
-	<button on:click={pageSubmit(pageNumber + 1)} disabled={pageNumber == maxPageNumber}
+	<button on:click={pageSubmit(pageNumber + 1)} disabled={pageNumber == maxPageNumber} class="shadow"
 		><img src="arrow-right.png" alt="arrow-right" /></button
 	>
 </div>

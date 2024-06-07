@@ -32,9 +32,11 @@
 
 <style>
 	.item-display {
-		margin-top: 25px;
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: space-between;
 		gap: 20px;
+		margin-top: 25px;
+		width: 100%;
 	}
 </style>

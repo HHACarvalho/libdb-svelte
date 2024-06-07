@@ -27,9 +27,9 @@
 	<div>
 		<span>Page size:</span>
 		<select bind:value={pageSize} on:change={pageSizeSubmit}>
-			<option value="14">14</option>
-			<option value="28">28</option>
-			<option value="56">56</option>
+			<option value="16">16</option>
+			<option value="32">32</option>
+			<option value="64">64</option>
 		</select>
 	</div>
 </div>
@@ -43,12 +43,12 @@
 	.header div {
 		display: flex;
 		align-items: center;
-		gap: 30px;
+		gap: 20px;
 	}
 
 	input {
 		padding: 10px 20px;
-		background-color: var(--background-blue);
+		background-color: var(--dark-blue);
 		border-radius: 30px;
 	}
 

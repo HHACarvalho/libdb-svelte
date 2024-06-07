@@ -22,7 +22,7 @@
 
 <style>
 	.item {
-		width: 200px;
+		width: 185px;
 		background-color: var(--dark-blue);
 		border-radius: 10px;
 		transition: 0.2s;
@@ -39,8 +39,7 @@
 	}
 
 	.image-wrapper {
-		width: 200px;
-		height: 230px;
+		height: 215px;
 		display: flex;
 		justify-content: center;
 	}
