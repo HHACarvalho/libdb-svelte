@@ -14,6 +14,11 @@
 		executeQuery();
 	}
 
+	function pageSizeSubmit(event) {
+		pageSize = event.detail;
+		executeQuery();
+	}
+
 	function pageNumberSubmit(event) {
 		pageNumber = event.detail;
 		executeQuery();
@@ -24,7 +29,13 @@
 	}
 </script>
 
-<Search on:searchSubmit={simpleSearchSubmit} pageTitle={'Authors'} queryParam={'name'} placeholder={'Name'} />
+<Search
+	on:searchSubmit={simpleSearchSubmit}
+	on:pageSizeSubmit={pageSizeSubmit}
+	pageTitle={'Authors'}
+	queryParam={'name'}
+	placeholder={'Name'}
+/>
 
 <ItemDisplay {data} type={'author'} />
 

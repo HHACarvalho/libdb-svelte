@@ -14,17 +14,28 @@
 		executeQuery();
 	}
 
+	function pageSizeSubmit(event) {
+		pageSize = event.detail;
+		executeQuery();
+	}
+
 	function pageNumberSubmit(event) {
 		pageNumber = event.detail;
 		executeQuery();
 	}
 
 	async function executeQuery() {
-		data = await customQuery(import.meta.env.VITE_AUTHOR_QUERY_URL, pageNumber, pageSize, queryParams);
+		data = await customQuery(import.meta.env.VITE_MEMBER_QUERY_URL, pageNumber, pageSize, queryParams);
 	}
 </script>
 
-<Search on:searchSubmit={simpleSearchSubmit} pageTitle={'Members'} queryParam={'name'} placeholder={'Name'} />
+<Search
+	on:searchSubmit={simpleSearchSubmit}
+	on:pageSizeSubmit={pageSizeSubmit}
+	pageTitle={'Members'}
+	queryParam={'name'}
+	placeholder={'Name'}
+/>
 
 <TableDisplay
 	{data}
