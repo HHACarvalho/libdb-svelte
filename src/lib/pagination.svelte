@@ -5,7 +5,9 @@
 	export let pageNumber;
 	export let pageSize;
 	export let totalCount;
-	const maxPageNumber = Math.ceil(totalCount / pageSize);
+	let maxPageNumber;
+
+	$: pageSize, (maxPageNumber = Math.ceil(totalCount / pageSize));
 
 	function pageSubmit(newPageNumber) {
 		dispatch('pageSubmit', newPageNumber);
@@ -14,7 +16,7 @@
 
 <div class="pagination">
 	<button on:click={pageSubmit(pageNumber - 1)} disabled={pageNumber == 1} class="shadow"
-		><img src="arrow-left.png" alt="arrow-left" /></button
+		><img src="/arrow-left.png" alt="arrow-left" /></button
 	>
 
 	{#if pageNumber == 1}
@@ -40,7 +42,7 @@
 	{/if}
 
 	<button on:click={pageSubmit(pageNumber + 1)} disabled={pageNumber == maxPageNumber} class="shadow"
-		><img src="arrow-right.png" alt="arrow-right" /></button
+		><img src="/arrow-right.png" alt="arrow-right" /></button
 	>
 </div>
 

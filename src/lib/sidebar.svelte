@@ -1,12 +1,12 @@
 <div class="sidebar">
 	<div class="logo"><a href="/">LibDB</a></div>
 	<nav>
-		<a href="/authors">Authors</a>
-		<a href="/books">Books</a>
-		<a href="/members">Members</a>
+		<a data-sveltekit-reload href="/author">Authors</a>
+		<a data-sveltekit-reload href="/book">Books</a>
+		<a data-sveltekit-reload href="/member">Members</a>
 	</nav>
 	<div class="options">
-		<img src="account.png" alt="account" />
+		<img src="/account.png" alt="account" />
 		Hugo Carvalho
 	</div>
 </div>
