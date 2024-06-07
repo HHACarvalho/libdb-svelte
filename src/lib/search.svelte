@@ -48,7 +48,7 @@
 
 	input {
 		padding: 10px 20px;
-		background-color: var(--dark-blue);
+		background-color: var(--background-blue);
 		border-radius: 30px;
 	}
 

@@ -17,8 +17,8 @@
 
 <style>
 	.item {
-		width: 200px;
-		height: calc(230px + 2.6em + 16px);
+		width: 185px;
+		background-color: var(--dark-blue);
 		border-radius: 10px;
 		transition: 0.2s;
 	}
@@ -28,8 +28,7 @@
 	}
 
 	.image-wrapper {
-		width: 200px;
-		height: 230px;
+		height: 215px;
 	}
 
 	img {
@@ -44,21 +43,17 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: var(--dark-blue);
-		border-radius: 0 0 10px 10px;
-		padding: 8px 0;
+		padding: 8px 16px;
 	}
 
 	p {
-		max-height: 2.6em;
 		line-height: 1.3em;
-		padding: 0 16px;
 		text-align: center;
 
 		display: -webkit-box;
-		text-overflow: ellipsis;
-		overflow: hidden;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 </style>
