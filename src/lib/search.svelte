@@ -3,8 +3,6 @@
 	const dispatch = createEventDispatcher();
 
 	export let pageTitle;
-	export let queryParam;
-	export let placeholder;
 	let searchValue;
 	let pageSize;
 
@@ -21,12 +19,12 @@
 	<div>
 		<h1>{pageTitle}</h1>
 		<form on:submit|preventDefault={searchSubmit}>
-			<input bind:value={searchValue} name={queryParam} {placeholder} />
+			<input bind:value={searchValue} name="search" placeholder="Search" />
 		</form>
 	</div>
 	<div>
 		<span>Page size:</span>
-		<select bind:value={pageSize} on:change={pageSizeSubmit}>
+		<select bind:value={pageSize} on:change={pageSizeSubmit} name="size">
 			<option value="16">16</option>
 			<option value="32">32</option>
 			<option value="64">64</option>
@@ -47,9 +45,9 @@
 	}
 
 	input {
-		padding: 10px 20px;
 		background-color: var(--background-blue);
 		border-radius: 30px;
+		padding: 10px 20px;
 	}
 
 	input::placeholder {
@@ -57,9 +55,8 @@
 	}
 
 	select {
-		padding: 10px;
 		background-color: var(--background-blue);
 		border-radius: 5px;
-		border: 0;
+		padding: 10px;
 	}
 </style>

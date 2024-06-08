@@ -23,15 +23,15 @@
 		<button on:click={pageSubmit(pageNumber)} class="shadow">{pageNumber}</button>
 		{#if pageNumber + 1 <= maxPageNumber}
 			<button on:click={pageSubmit(pageNumber + 1)} class="shadow">{pageNumber + 1}</button>
-		{/if}
-		{#if pageNumber + 2 <= maxPageNumber}
-			<button on:click={pageSubmit(pageNumber + 2)} class="shadow">{pageNumber + 2}</button>
+			{#if pageNumber + 2 <= maxPageNumber}
+				<button on:click={pageSubmit(pageNumber + 2)} class="shadow">{pageNumber + 2}</button>
+			{/if}
 		{/if}
 	{:else if pageNumber == maxPageNumber}
-		{#if pageNumber - 2 >= 1}
-			<button on:click={pageSubmit(pageNumber - 2)} class="shadow">{pageNumber - 2}</button>
-		{/if}
 		{#if pageNumber - 1 >= 1}
+			{#if pageNumber - 2 >= 1}
+				<button on:click={pageSubmit(pageNumber - 2)} class="shadow">{pageNumber - 2}</button>
+			{/if}
 			<button on:click={pageSubmit(pageNumber - 1)} class="shadow">{pageNumber - 1}</button>
 		{/if}
 		<button on:click={pageSubmit(pageNumber)} class="shadow">{pageNumber}</button>
@@ -54,11 +54,11 @@
 	}
 
 	button {
-		padding: 10px 15px;
 		background-color: var(--dark-blue);
 		border-radius: 5px;
-		transition: 0.3s;
 		font-size: 1em;
+		padding: 10px 15px;
+		transition: 0.3s;
 	}
 
 	button:hover {
@@ -66,7 +66,7 @@
 	}
 
 	img {
-		height: 1em;
 		display: block;
+		height: 1em;
 	}
 </style>

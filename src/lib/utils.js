@@ -18,21 +18,6 @@ export async function get(url) {
 	}
 }
 
-export async function customQuery(queryUrl, pageNumber, pageSize, queryParams) {
-	let customUrl = queryUrl;
-
-	customUrl += 'pageNumber=' + pageNumber;
-	customUrl += '&pageSize=' + pageSize;
-
-	for (let [param, paramValue] of Object.entries(queryParams)) {
-		if (!isNullOrEmpty(paramValue)) {
-			customUrl += '&' + param + '=' + paramValue;
-		}
-	}
-
-	return await get(customUrl);
-}
-
-function isNullOrEmpty(str) {
+export function isNullOrEmpty(str) {
 	return str === null || str === '';
 }
