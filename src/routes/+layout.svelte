@@ -21,5 +21,6 @@
 
 	main {
 		padding: 40px;
+		width: 100%;
 	}
 </style>
