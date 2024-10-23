@@ -20,7 +20,7 @@
 	>
 
 	{#if pageNumber == 1}
-		<button on:click={pageSubmit(pageNumber)} class="shadow">{pageNumber}</button>
+		<button disabled="true" class="shadow disabled">{pageNumber}</button>
 		{#if pageNumber + 1 <= maxPageNumber}
 			<button on:click={pageSubmit(pageNumber + 1)} class="shadow">{pageNumber + 1}</button>
 			{#if pageNumber + 2 <= maxPageNumber}
@@ -34,10 +34,10 @@
 			{/if}
 			<button on:click={pageSubmit(pageNumber - 1)} class="shadow">{pageNumber - 1}</button>
 		{/if}
-		<button on:click={pageSubmit(pageNumber)} class="shadow">{pageNumber}</button>
+		<button disabled="true" class="shadow disabled">{pageNumber}</button>
 	{:else}
 		<button on:click={pageSubmit(pageNumber - 1)} class="shadow">{pageNumber - 1}</button>
-		<button on:click={pageSubmit(pageNumber)} class="shadow">{pageNumber}</button>
+		<button disabled="true" class="shadow disabled">{pageNumber}</button>
 		<button on:click={pageSubmit(pageNumber + 1)} class="shadow">{pageNumber + 1}</button>
 	{/if}
 
@@ -59,6 +59,10 @@
 		font-size: 1em;
 		padding: 10px 15px;
 		transition: 0.3s;
+	}
+
+	.disabled {
+		background-color: var(--light-purple);
 	}
 
 	button:hover {
