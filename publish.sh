@@ -4,7 +4,7 @@
 npm run build
 
 # Build the docker image
-docker build -t libdb-svelte-image:latest .
+docker build -t libdb-svelte-image:latest ./
 
 # Stop and remove any existing docker container
 docker stop libdb-svelte-container && docker rm libdb-svelte-container
