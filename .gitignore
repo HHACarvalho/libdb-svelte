@@ -146,6 +146,7 @@ dist
 # website: https://kit.svelte.dev/
 
 .svelte-kit/
+build/
 package
 
 ### VisualStudioCode ###
