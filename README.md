@@ -4,4 +4,4 @@ Web application build with Sveltekit that serves as the user interface portion o
 
 # Building the application
 
-Run the [publish.sh](https://github.com/HHACarvalho/libdb-dotnet/blob/main/publish.sh) script after adding missing information in the .env file.
+After installing [Docker](https://www.docker.com/) and filling in the missing information in the .env file, run the [publish.sh](https://github.com/HHACarvalho/libdb-svelte/blob/main/publish.sh) script.
