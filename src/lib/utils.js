@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export async function get(url) {
 	try {
-		const res = await axios.get(url, {
+		const res = await axios.get(import.meta.env.VITE_API_URL + url, {
 			validateStatus: function (status) {
 				return status < 500;
 			},
