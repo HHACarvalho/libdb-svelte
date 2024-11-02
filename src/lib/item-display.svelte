@@ -10,13 +10,9 @@
 	{#if data.error}
 		<h1>{data.error}</h1>
 	{:else if type == 'author'}
-		{#if data.error}
-			<h1>{data.error}</h1>
-		{:else}
-			{#each data.array as obj}
-				<ItemAuthor id={obj.id} imageUrl={obj.imageUrl} description={obj.name} />
-			{/each}
-		{/if}
+		{#each data.array as obj}
+			<ItemAuthor id={obj.id} imageUrl={obj.imageUrl} description={obj.name} />
+		{/each}
 	{:else if type == 'book'}
 		{#each data.array as obj}
 			<ItemBook
