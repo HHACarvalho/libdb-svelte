@@ -6,8 +6,8 @@
 
 	export let data;
 	const searchParams = new URLSearchParams();
-	let pageNumber = Number(import.meta.env.VITE_DEFAULT_PAGE_NUMBER);
-	let pageSize = Number(import.meta.env.VITE_DEFAULT_PAGE_SIZE);
+	let pageNumber = 1;
+	let pageSize = 16;
 
 	function simpleSearchSubmit(event) {
 		searchParams.set('title', event.detail);
@@ -37,4 +37,4 @@
 
 <ItemDisplay {data} type={'book'} />
 
-<Pagination on:pageSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />
+<Pagination on:pageNumberSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />
