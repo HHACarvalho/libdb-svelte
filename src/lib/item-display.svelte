@@ -32,6 +32,5 @@
 		flex-wrap: wrap;
 		gap: 20px;
 		margin-top: 25px;
-		width: 100%;
 	}
 </style>
