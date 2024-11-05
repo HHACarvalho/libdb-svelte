@@ -35,6 +35,10 @@
 
 <Search on:searchSubmit={simpleSearchSubmit} on:pageSizeSubmit={pageSizeSubmit} pageTitle={'Authors'} />
 
+<div class="spacer-25"></div>
+
 <ItemDisplay {data} type={'author'} />
+
+<div class="spacer-35"></div>
 
 <Pagination on:pageSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />

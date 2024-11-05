@@ -35,10 +35,15 @@
 
 <Search on:searchSubmit={simpleSearchSubmit} on:pageSizeSubmit={pageSizeSubmit} pageTitle={'Members'} />
 
+<div class="spacer-25"></div>
+
 <TableDisplay
-	{data}
+	dataEntries={data.array}
 	dataHeaders={['Id', 'Name', 'Email', 'Address', 'Phone Number']}
 	dataVariables={['id', 'name', 'email', 'address', 'phoneNumber']}
+	hyperlink={true}
 />
+
+<div class="spacer-35"></div>
 
 <Pagination on:pageSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />
