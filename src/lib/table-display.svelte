@@ -1,33 +1,53 @@
 <script>
-	export let data;
+	export let dataEntries;
 	export let dataHeaders;
 	export let dataVariables;
+	export let hyperlink;
 </script>
 
-<div class="table-display">
-	{#if data.error}
-		<h1>{data.error}</h1>
-	{:else}
-		<table>
-			<tr>
-				{#each dataHeaders as obj}
-					<th>{obj}</th>
+<table>
+	<tr>
+		{#each dataHeaders as obj}
+			<th>{obj}</th>
+		{/each}
+	</tr>
+	{#if hyperlink}
+		{#each dataEntries as obj}
+			<tr class="tr-data">
+				{#each dataVariables as e}
+					<td><a href="/member/{obj.id}">{obj[e]}</a></td>
 				{/each}
 			</tr>
-			{#each data.array as obj}
-				<tr class="tr-data">
-					{#each dataVariables as e}
-						<td><a href="/member/{obj.id}">{obj[e]}</a></td>
-					{/each}
-				</tr>
-			{/each}
-		</table>
+		{/each}
+	{:else}
+		{#each dataEntries as obj}
+			<tr class="tr-data">
+				{#each dataVariables as e}
+					{#if e === 'isAvailable'}
+						<td class="Availability">
+							<p>{obj[e] ? 'Available' : 'Unavailable'}</p>
+							<svg width="1em" height="1em" viewBox="0 0 100 100">
+								<circle cx="50" cy="50" r="50" fill={obj[e] ? 'green' : 'red'} />
+							</svg>
+						</td>
+					{:else if e === 'options'}
+						<td>
+							<button on:click={() => {}}>Borrow</button> |
+							<button on:click={() => {}}>Edit</button> |
+							<button on:click={() => {}}>Delete</button>
+						</td>
+					{:else}
+						<td>{obj[e]}</td>
+					{/if}
+				{/each}
+			</tr>
+		{/each}
 	{/if}
-</div>
+</table>
 
 <style>
-	.table-display {
-		margin-top: 25px;
+	table {
+		width: 100%;
 	}
 
 	.tr-data {
@@ -35,13 +55,13 @@
 	}
 
 	.tr-data:hover {
-		opacity: 0.6;
+		opacity: 0.75;
 	}
 
-	td,
-	th {
-		padding: 12px 24px;
+	th,
+	td {
 		background-color: var(--dark-blue);
+		padding: 12px 24px;
 		text-align: left;
 	}
 
@@ -49,7 +69,7 @@
 		background-color: var(--background-blue);
 	}
 
-	th:first-child {
+	/* th:first-child {
 		border-top-left-radius: 10px;
 		box-shadow: 0 0 0 1px var(--darker-blue);
 	}
@@ -67,5 +87,16 @@
 	tr:last-child td:last-child {
 		border-bottom-right-radius: 10px;
 		box-shadow: 0 0 0 1px var(--darker-blue);
+	} */
+
+	.Availability {
+		align-items: center;
+		display: flex;
+		gap: 10px;
+	}
+
+	button {
+		background: none;
+		font-size: 1em;
 	}
 </style>

@@ -1,4 +1,6 @@
 <script>
+	import TableDisplay from '$lib/table-display.svelte';
+
 	export let data;
 </script>
 
@@ -23,14 +25,22 @@
 			</div>
 		</div>
 	</div>
-	<div>
-		{#each data.bookEntries as entry}
-			<p>{entry.id}: {entry.isbn}</p>
-		{/each}
+	<div class="table-border">
+		<TableDisplay
+			dataEntries={data.bookEntries}
+			dataHeaders={['Id', 'ISBN', 'Availability', '']}
+			dataVariables={['id', 'isbn', 'isAvailable', 'options']}
+			hyperlink={false}
+		/>
 	</div>
 </div>
 
 <style>
+	.table-border {
+		border: 5px solid var(--background-blue);
+		border-radius: 10px;
+	}
+
 	.page {
 		display: flex;
 		flex-direction: column;
@@ -43,10 +53,10 @@
 	}
 
 	.pad {
-		background-color: var(--background-blue);
-		border-radius: 20px;
-		padding: 40px;
 		display: flex;
+		background-color: var(--background-blue);
+		border-radius: 10px;
+		padding: 40px;
 	}
 
 	img {

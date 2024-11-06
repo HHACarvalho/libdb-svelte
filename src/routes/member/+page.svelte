@@ -37,12 +37,14 @@
 
 <div class="spacer-25"></div>
 
-<TableDisplay
-	dataEntries={data.array}
-	dataHeaders={['Id', 'Name', 'Email', 'Address', 'Phone Number']}
-	dataVariables={['id', 'name', 'email', 'address', 'phoneNumber']}
-	hyperlink={true}
-/>
+<div class="table-border">
+	<TableDisplay
+		dataEntries={data.array}
+		dataHeaders={['Id', 'Name', 'Email', 'Address', 'Phone Number']}
+		dataVariables={['id', 'name', 'email', 'address', 'phoneNumber']}
+		hyperlink={true}
+	/>
+</div>
 
 <div class="spacer-35"></div>
 
