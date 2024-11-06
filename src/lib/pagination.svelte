@@ -15,9 +15,9 @@
 </script>
 
 <div class="pagination">
-	<button on:click={pageNumberSubmit(pageNumber - 1)} disabled={pageNumber == 1} class="shadow"
-		><img src="/arrow-left.png" alt="arrow-left" /></button
-	>
+	<button on:click={pageNumberSubmit(pageNumber - 1)} disabled={pageNumber == 1} class="shadow">
+		<img src="/arrow-left.png" alt="arrow-left" />
+	</button>
 
 	{#if pageNumber == 1}
 		<button disabled="true" class="shadow disabled">{pageNumber}</button>
@@ -41,16 +41,15 @@
 		<button on:click={pageNumberSubmit(pageNumber + 1)} class="shadow">{pageNumber + 1}</button>
 	{/if}
 
-	<button on:click={pageNumberSubmit(pageNumber + 1)} disabled={pageNumber == maxPageNumber} class="shadow"
-		><img src="/arrow-right.png" alt="arrow-right" /></button
-	>
+	<button on:click={pageNumberSubmit(pageNumber + 1)} disabled={pageNumber == maxPageNumber} class="shadow">
+		<img src="/arrow-right.png" alt="arrow-right" />
+	</button>
 </div>
 
 <style>
 	.pagination {
 		display: flex;
 		gap: 10px;
-		margin-top: 35px;
 	}
 
 	button {

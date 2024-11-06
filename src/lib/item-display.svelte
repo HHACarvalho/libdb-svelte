@@ -7,9 +7,7 @@
 </script>
 
 <div class="item-display">
-	{#if data.error}
-		<h1>{data.error}</h1>
-	{:else if type == 'author'}
+	{#if type == 'author'}
 		{#each data.array as obj}
 			<ItemAuthor id={obj.id} imageUrl={obj.imageUrl} description={obj.name} />
 		{/each}
@@ -31,6 +29,5 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 20px;
-		margin-top: 25px;
 	}
 </style>
