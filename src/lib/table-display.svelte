@@ -48,6 +48,8 @@
 <style>
 	table {
 		width: 100%;
+		border: 5px solid var(--background-blue);
+		border-radius: 10px;
 	}
 
 	.tr-data {
