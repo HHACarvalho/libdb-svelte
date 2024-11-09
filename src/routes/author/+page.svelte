@@ -33,12 +33,16 @@
 	}
 </script>
 
-<Search on:searchSubmit={simpleSearchSubmit} on:pageSizeSubmit={pageSizeSubmit} pageTitle={'Authors'} />
+{#if data.error}
+	<h1>An error occurred: {data.error}</h1>
+{:else}
+	<Search on:searchSubmit={simpleSearchSubmit} on:pageSizeSubmit={pageSizeSubmit} pageTitle={'Authors'} />
 
-<div class="spacer-25"></div>
+	<div class="spacer-25"></div>
 
-<ItemDisplay {data} type={'author'} />
+	<ItemDisplay {data} type={'author'} />
 
-<div class="spacer-35"></div>
+	<div class="spacer-35"></div>
 
-<Pagination on:pageSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />
+	<Pagination on:pageSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />
+{/if}

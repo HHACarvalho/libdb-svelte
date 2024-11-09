@@ -33,17 +33,21 @@
 	}
 </script>
 
-<Search on:searchSubmit={simpleSearchSubmit} on:pageSizeSubmit={pageSizeSubmit} pageTitle={'Members'} />
+{#if data.error}
+	<h1>An error occurred: {data.error}</h1>
+{:else}
+	<Search on:searchSubmit={simpleSearchSubmit} on:pageSizeSubmit={pageSizeSubmit} pageTitle={'Members'} />
 
-<div class="spacer-25"></div>
+	<div class="spacer-25"></div>
 
-<TableDisplay
-	dataEntries={data.array}
-	dataHeaders={['Id', 'Name', 'Email', 'Address', 'Phone Number']}
-	dataVariables={['id', 'name', 'email', 'address', 'phoneNumber']}
-	hyperlink={true}
-/>
+	<TableDisplay
+		dataEntries={data.array}
+		dataHeaders={['Id', 'Name', 'Email', 'Address', 'Phone Number']}
+		dataVariables={['id', 'name', 'email', 'address', 'phoneNumber']}
+		hyperlink={true}
+	/>
 
-<div class="spacer-35"></div>
+	<div class="spacer-35"></div>
 
-<Pagination on:pageSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />
+	<Pagination on:pageSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />
+{/if}

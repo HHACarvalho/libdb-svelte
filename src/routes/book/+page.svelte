@@ -33,12 +33,16 @@
 	}
 </script>
 
-<Search on:searchSubmit={simpleSearchSubmit} on:pageSizeSubmit={pageSizeSubmit} pageTitle={'Books'} />
+{#if data.error}
+	<h1>An error occurred: {data.error}</h1>
+{:else}
+	<Search on:searchSubmit={simpleSearchSubmit} on:pageSizeSubmit={pageSizeSubmit} pageTitle={'Books'} />
 
-<div class="spacer-25"></div>
+	<div class="spacer-25"></div>
 
-<ItemDisplay {data} type={'book'} />
+	<ItemDisplay {data} type={'book'} />
 
-<div class="spacer-35"></div>
+	<div class="spacer-35"></div>
 
-<Pagination on:pageNumberSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />
+	<Pagination on:pageNumberSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />
+{/if}
