@@ -25,22 +25,15 @@
 			</div>
 		</div>
 	</div>
-	<div class="table-border">
-		<TableDisplay
-			dataEntries={data.bookEntries}
-			dataHeaders={['Id', 'ISBN', 'Availability', '']}
-			dataVariables={['id', 'isbn', 'isAvailable', 'options']}
-			hyperlink={false}
-		/>
-	</div>
+	<TableDisplay
+		dataEntries={data.bookEntries}
+		dataHeaders={['Id', 'ISBN', 'Availability', '']}
+		dataVariables={['id', 'isbn', 'isAvailable', 'options']}
+		hyperlink={false}
+	/>
 </div>
 
 <style>
-	.table-border {
-		border: 5px solid var(--background-blue);
-		border-radius: 10px;
-	}
-
 	.page {
 		display: flex;
 		flex-direction: column;
