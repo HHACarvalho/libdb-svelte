@@ -1,10 +1,10 @@
-import { get, isNullOrEmpty } from '$lib/utils';
+import { dataRequest, stringIsNullOrEmpty } from '$lib/server-utils';
 
 export async function load({ url }) {
 	const params = url.searchParams.toString();
-	if (isNullOrEmpty(params)) {
-		return await get('member?pageNumber=1&pageSize=16');
+	if (stringIsNullOrEmpty(params)) {
+		return await dataRequest('member?pageNumber=1&pageSize=16', 'GET', null);
 	}
 
-	return await get('member/search?' + params);
+	return await dataRequest('member/search?' + params, 'GET', null);
 }
