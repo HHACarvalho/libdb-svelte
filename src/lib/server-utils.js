@@ -2,49 +2,40 @@ const apiUrl = process.env.ENVIRONMENT
 	? import.meta.env.VITE_API_URL_PRODUCTION
 	: import.meta.env.VITE_API_URL_DEVELOPMENT;
 
-export async function get(endpoint) {
+export async function dataRequest(endpoint, requestType, requestBody) {
 	try {
-		const request = await fetch(apiUrl + endpoint);
+		const options = requestOptions(requestType, requestBody);
+		const request = await fetch(apiUrl + endpoint, options);
 		const result = await request.json();
 
 		return result;
 	} catch (error) {
-		return { error: 'Internal Server Error: Network Error' };
+		return { error: 'Internal Server Error' };
 	}
 }
-export async function put(endpoint, bodyContent) {
+
+export async function operationRequest(endpoint, requestType, requestBody) {
 	try {
-		const request = await fetch(apiUrl + endpoint, requestSettings('PUT', bodyContent));
+		const options = requestOptions(requestType, requestBody);
+		const request = await fetch(apiUrl + endpoint, options);
 
 		return request.status === 200;
 	} catch (error) {
-		return { error: 'Internal Server Error: Network Error' };
+		return { error: 'Internal Server Error' };
 	}
 }
 
-export async function deleteRequest(endpoint) {
-	try {
-		const request = await fetch(apiUrl + endpoint, requestSettings('DELETE'), null);
-
-		return request.status === 200;
-	} catch (error) {
-		return { error: 'Internal Server Error: Network Error' };
-	}
-}
-
-function requestSettings(requestType, bodyContent) {
-	const requestSettings = {
-		method: requestType,
-		headers: { 'Content-Type': 'application/json' },
-	};
+function requestOptions(requestType, bodyContent) {
+	const requestSettings = { method: requestType };
 
 	if (bodyContent) {
+		requestSettings['headers'] = { 'Content-Type': 'application/json' };
 		requestSettings['body'] = JSON.stringify(bodyContent);
 	}
 
 	return requestSettings;
 }
 
-export function isNullOrEmpty(str) {
+export function stringIsNullOrEmpty(str) {
 	return str === null || str === '';
 }
