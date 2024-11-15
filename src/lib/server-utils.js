@@ -10,6 +10,7 @@ export async function dataRequest(endpoint, requestType, requestBody) {
 
 		return result;
 	} catch (error) {
+		//TODO: logger
 		return { error: 'Internal Server Error' };
 	}
 }
@@ -18,14 +19,20 @@ export async function operationRequest(endpoint, requestType, requestBody) {
 	try {
 		const options = requestOptions(requestType, requestBody);
 		const request = await fetch(apiUrl + endpoint, options);
+		let result = {};
 
-		return request.status === 200;
+		if (request.status !== 200) {
+			result = await request.json();
+		}
+
+		return result;
 	} catch (error) {
+		//TODO: logger
 		return { error: 'Internal Server Error' };
 	}
 }
 
-function requestOptions(requestType, bodyContent) {
+export function requestOptions(requestType, bodyContent) {
 	const requestSettings = { method: requestType };
 
 	if (bodyContent) {
