@@ -1,5 +1,5 @@
-import { dataRequest } from '$lib/server-utils';
+import { serverDataRequest } from '$lib/utils-server';
 
 export async function load({ params }) {
-	return await dataRequest('book/' + params.slug, 'GET', null);
+	return await serverDataRequest('book/' + params.slug, 'GET', null);
 }

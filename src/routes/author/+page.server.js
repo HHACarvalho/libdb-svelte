@@ -1,10 +1,11 @@
-import { dataRequest, stringIsNullOrEmpty } from '$lib/server-utils';
+import { serverDataRequest } from '$lib/utils-server';
+import { stringIsNullOrEmpty } from '$lib/utils';
 
 export async function load({ url }) {
 	const params = url.searchParams.toString();
 	if (stringIsNullOrEmpty(params)) {
-		return await dataRequest('author?pageNumber=1&pageSize=16', 'GET', null);
+		return await serverDataRequest('author?pageNumber=1&pageSize=16', 'GET', null);
 	}
 
-	return await dataRequest('author/search?' + params, 'GET', null);
+	return await serverDataRequest('author/search?' + params, 'GET', null);
 }
