@@ -1,34 +1,23 @@
-export async function dataRequest(url, requestType, requestBody) {
+export async function apiRequest(url, requestType, requestBody) {
 	try {
-		const options = requestOptions(requestType, requestBody);
+		const options = buildRequestOptions(requestType, requestBody);
 		const request = await fetch(url, options);
-		const result = await request.json();
 
-		return result;
-	} catch (error) {
-		//TODO: logger
-		return { error: 'Internal Server Error' };
-	}
-}
-
-export async function makeRequest(url, requestType, requestBody) {
-	try {
-		const options = requestOptions(requestType, requestBody);
-		const request = await fetch(url, options);
 		let result = {};
 
-		if (request.status !== 200) {
+		const contentType = request.headers.get('Content-Type') || '';
+		if (contentType.includes('application/json')) {
 			result = await request.json();
 		}
 
 		return result;
 	} catch (error) {
-		//TODO: logger
+		console.error(error);
 		return { error: 'Internal Server Error' };
 	}
 }
 
-function requestOptions(requestType, bodyContent) {
+function buildRequestOptions(requestType, bodyContent) {
 	const requestSettings = { method: requestType };
 
 	if (bodyContent) {
