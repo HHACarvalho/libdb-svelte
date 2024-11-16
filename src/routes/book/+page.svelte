@@ -7,8 +7,8 @@
 
 	export let data;
 	const searchParams = new URLSearchParams($page.url.searchParams);
-	let pageNumber = searchParams.get('pageNumber') || 1;
-	let pageSize = searchParams.get('pageSize') || 16;
+	let pageNumber = Number(searchParams.get('pageNumber')) || 1;
+	let pageSize = Number(searchParams.get('pageSize')) || 16;
 
 	function simpleSearchSubmit(event) {
 		searchParams.set('title', event.detail);
