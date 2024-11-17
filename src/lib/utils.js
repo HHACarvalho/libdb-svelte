@@ -8,6 +8,8 @@ export async function apiRequest(url, requestType, requestBody) {
 		const contentType = request.headers.get('Content-Type') || '';
 		if (contentType.includes('application/json')) {
 			result = await request.json();
+		} else if (!request.ok) {
+			return { error: request.statusText };
 		}
 
 		return result;
