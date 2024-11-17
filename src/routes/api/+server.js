@@ -21,7 +21,7 @@ async function callApi(request, requestType) {
 	try {
 		const data = await request.json();
 
-		const apiResult = await serverApiRequest(data.entity + '/' + data.entityId, requestType, data.body);
+		const apiResult = await serverApiRequest(data.entityType + '/' + data.entityId, requestType, data.body);
 		if (apiResult.error) {
 			return buildRequestResponse(apiResult, 400);
 		}

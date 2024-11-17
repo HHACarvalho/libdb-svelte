@@ -1,18 +1,18 @@
 export async function apiRequest(url, requestType, requestBody) {
 	try {
-		const options = buildRequestOptions(requestType, requestBody);
-		const request = await fetch(url, options);
+		const opt = buildRequestOptions(requestType, requestBody);
+		const req = await fetch(url, opt);
 
-		let result = {};
+		let res = {};
 
-		const contentType = request.headers.get('Content-Type') || '';
+		const contentType = req.headers.get('Content-Type') || '';
 		if (contentType.includes('application/json')) {
-			result = await request.json();
-		} else if (!request.ok) {
-			return { error: request.statusText };
+			res = await req.json();
+		} else if (!req.ok) {
+			res = { error: req.statusText };
 		}
 
-		return result;
+		return res;
 	} catch (error) {
 		console.error(error);
 		return { error: 'Internal Server Error' };
