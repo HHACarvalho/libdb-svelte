@@ -1,11 +1,27 @@
 import { objectIsNullOrEmpty } from '$lib/utils';
 import { serverApiRequest } from '$lib/utils-server';
 
+export async function GET({ request }) {
+	return await callApi(request, 'GET');
+}
+
 export async function POST({ request }) {
+	return await callApi(request, 'POST');
+}
+
+export async function PUT({ request }) {
+	return await callApi(request, 'PUT');
+}
+
+export async function DELETE({ request }) {
+	return await callApi(request, 'DELETE');
+}
+
+async function callApi(request, requestType) {
 	try {
 		const data = await request.json();
 
-		const apiResult = await serverApiRequest(data.entity + '/' + data.parameter, data.requestType, data.body);
+		const apiResult = await serverApiRequest(data.entity + '/' + data.entityId, requestType, data.body);
 		if (apiResult.error) {
 			return buildRequestResponse(apiResult, 400);
 		}
