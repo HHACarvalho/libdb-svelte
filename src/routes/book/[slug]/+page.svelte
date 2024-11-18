@@ -1,7 +1,21 @@
 <script>
+	import ModalCollection from '$lib/modal-collection.svelte';
 	import TableDisplay from '$lib/table-display.svelte';
 
 	export let data;
+	let modalCollection;
+
+	// function openModalBorrow(e) {
+	// 	modalCollection.openModalBorrow(e.detail);
+	// }
+
+	// function openModalEdit(e) {
+	// 	modalCollection.openModalEdit(e.detail);
+	// }
+
+	function openModalDelete(e) {
+		modalCollection.openModalDelete(e.detail);
+	}
 </script>
 
 {#if data.error}
@@ -33,8 +47,13 @@
 			dataHeaders={['Id', 'ISBN', 'Availability', '']}
 			dataVariables={['id', 'isbn', 'isAvailable', 'options']}
 			hyperlink={false}
+			on:openModalBorrow={openModalBorrow}
+			on:openModalEdit={openModalEdit}
+			on:openModalDelete={openModalDelete}
 		/>
 	</div>
+
+	<ModalCollection bind:this={modalCollection} modalList={['borrow', 'edit', 'delete']} />
 {/if}
 
 <style>
