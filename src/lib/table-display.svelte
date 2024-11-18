@@ -1,8 +1,12 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
+	//TODO: export let EntityType;
 	export let dataEntries;
 	export let dataHeaders;
 	export let dataVariables;
-	export let hyperlink;
+	export let hyperlink; //TODO: Find a better way
 </script>
 
 <table>
@@ -32,9 +36,23 @@
 						</td>
 					{:else if e === 'options'}
 						<td>
-							<button on:click={() => {}}>Borrow</button> |
-							<button on:click={() => {}}>Edit</button> |
-							<button on:click={() => {}}>Delete</button>
+							<button
+								on:click={() => {
+									dispatch('openModalBorrow', { entityType: 'bookEntry', entity: obj }); //TODO: entityType
+								}}>Borrow</button
+							>
+							|
+							<button
+								on:click={() => {
+									dispatch('openModalEdit', { entityType: 'bookEntry', entity: obj }); //TODO: entityType
+								}}>Edit</button
+							>
+							|
+							<button
+								on:click={() => {
+									dispatch('openModalDelete', { entityType: 'bookEntry', entity: obj }); //TODO: entityType
+								}}>Delete</button
+							>
 						</td>
 					{:else}
 						<td>{obj[e]}</td>
@@ -71,26 +89,6 @@
 		background-color: var(--background-blue);
 	}
 
-	/* th:first-child {
-		border-top-left-radius: 10px;
-		box-shadow: 0 0 0 1px var(--darker-blue);
-	}
-
-	th:last-child {
-		border-top-right-radius: 10px;
-		box-shadow: 0 0 0 1px var(--darker-blue);
-	}
-
-	tr:last-child td:first-child {
-		border-bottom-left-radius: 10px;
-		box-shadow: 0 0 0 1px var(--darker-blue);
-	}
-
-	tr:last-child td:last-child {
-		border-bottom-right-radius: 10px;
-		box-shadow: 0 0 0 1px var(--darker-blue);
-	} */
-
 	.Availability {
 		align-items: center;
 		display: flex;
@@ -100,5 +98,11 @@
 	button {
 		background: none;
 		font-size: 1em;
+		cursor: pointer;
+		transition: 0.3s;
+	}
+
+	button:hover {
+		color: var(--light-purple);
 	}
 </style>
