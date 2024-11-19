@@ -50,7 +50,7 @@
 							|
 							<button
 								on:click={() => {
-									dispatch('openModalDelete', { entityType: 'bookEntry', entity: obj }); //TODO: entityType
+									dispatch('openModalDelete', { entityType: 'bookEntry', id: obj.id }); //TODO: entityType
 								}}>Delete</button
 							>
 						</td>

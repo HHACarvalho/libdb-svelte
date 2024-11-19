@@ -1,18 +1,24 @@
 <script>
 	import { page } from '$app/stores';
-	import { deleteEntity } from '$lib/utils-client';
+	import { apiRequest } from '$lib/utils';
 	import Modal from '$lib/modal.svelte';
 
 	export let isActive;
 	export let data;
 
 	async function confirm() {
-		const req = await deleteEntity($page.url.origin, data.entityType, data.entity.id);
+		const url = $page.url.origin + '/api/';
+		const req = await apiRequest(url, 'DELETE', {
+			entityType: data.entityType,
+			entityId: data.id,
+			body: null,
+		});
+
 		cancel();
 
 		if (req.error) {
 			//TODO: Display an error message
-			console.log(88, req.error);
+			console.error(req.error);
 		} else {
 			//TODO: Reloading makes it impossible to display a successful message
 			location.reload();
