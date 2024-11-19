@@ -1,4 +1,5 @@
 <script>
+	import { page } from '$app/stores';
 	import { deleteEntity } from '$lib/utils-client';
 	import Modal from '$lib/modal.svelte';
 
@@ -6,7 +7,7 @@
 	export let data;
 
 	async function confirm() {
-		const req = await deleteEntity(data.entityType, data.entity.id);
+		const req = await deleteEntity($page.url.origin, data.entityType, data.entity.id);
 		cancel();
 
 		if (req.error) {

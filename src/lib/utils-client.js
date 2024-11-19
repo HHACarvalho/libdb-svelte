@@ -1,13 +1,11 @@
 import { apiRequest } from '$lib/utils';
 
-const apiUrl = 'http://localhost:5173/';
-
-async function clientApiRequest(endpoint, requestType, requestBody) {
-	return await apiRequest(apiUrl + endpoint, requestType, requestBody);
+async function clientApiRequest(apiUrl, requestType, requestBody) {
+	return await apiRequest(apiUrl + '/api/', requestType, requestBody);
 }
 
-export async function deleteEntity(entityType, entityId) {
-	return await clientApiRequest('api', 'DELETE', {
+export async function deleteEntity(apiUrl, entityType, entityId) {
+	return await clientApiRequest(apiUrl, 'DELETE', {
 		entityType: entityType,
 		entityId: entityId,
 		body: null,
