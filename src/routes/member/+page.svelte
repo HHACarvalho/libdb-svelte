@@ -43,7 +43,7 @@
 
 	<TableDisplay
 		entityType={'member'}
-		dataEntries={data.array}
+		dataArray={data.array}
 		dataHeaders={['Id', 'Name', 'Email', 'Address', 'Phone Number']}
 		dataVariables={['id', 'name', 'email', 'address', 'phoneNumber']}
 	/>

@@ -2,68 +2,57 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	export let entityType;
-	export let dataEntries;
-	export let dataHeaders;
-	export let dataVariables;
+	export let entityType = '';
+	export let dataArray = [];
+	export let dataHeaders = [];
+	export let dataVariables = [];
+	export let actions = [];
 </script>
 
 <table>
 	<tr>
-		{#each dataHeaders as obj}
-			<th>{obj}</th>
+		{#each dataHeaders as header}
+			<th>{header}</th>
 		{/each}
 	</tr>
-	{#if entityType === 'member'}
-		{#each dataEntries as obj}
-			<tr class="tr-data">
-				{#each dataVariables as e}
-					{#if e === 'name'}
-						<td><a href="/member/{obj.id}">{obj[e]}</a></td>
-					{:else}
-						<td>{obj[e]}</td>
-					{/if}
-				{/each}
-			</tr>
-		{/each}
-	{:else}
-		{#each dataEntries as obj}
-			<tr class="tr-data">
-				{#each dataVariables as e}
-					{#if e === 'isAvailable'}
-						<td class="Availability">
-							<p>{obj[e] ? 'Available' : 'Unavailable'}</p>
-							<svg width="1em" height="1em" viewBox="0 0 100 100">
-								<circle cx="50" cy="50" r="50" fill={obj[e] ? 'green' : 'red'} />
+
+	{#each dataArray as dataEntry}
+		<tr>
+			{#each dataVariables as varName}
+				<td>
+					{#if varName === 'name' && entityType === 'member'}
+						<a href="/member/{dataEntry.id}">{dataEntry[varName]}</a>
+					{:else if varName === 'isAvailable' && entityType === 'bookEntry'}
+						<div class="container_gap10">
+							<p>{dataEntry[varName] ? 'Available' : 'Unavailable'}</p>
+							<svg viewBox="0 0 2 2">
+								<circle cx="1" cy="1" r="1" fill={dataEntry[varName] ? 'green' : 'red'} />
 							</svg>
-						</td>
-					{:else if e === 'options'}
-						<td>
-							<button
-								on:click={() => {
-									dispatch('openModalBorrow', { entityType: 'bookEntry', entity: obj }); //TODO: entityType
-								}}>Borrow</button
-							>
-							|
-							<button
-								on:click={() => {
-									dispatch('openModalEdit', { entityType: 'bookEntry', entity: obj }); //TODO: entityType
-								}}>Edit</button
-							>
-							|
-							<button
-								on:click={() => {
-									dispatch('openModalDelete', { entityType: 'bookEntry', id: obj.id }); //TODO: entityType
-								}}>Delete</button
-							>
-						</td>
+						</div>
 					{:else}
-						<td>{obj[e]}</td>
+						{dataEntry[varName]}
 					{/if}
-				{/each}
-			</tr>
-		{/each}
-	{/if}
+				</td>
+			{/each}
+
+			{#if actions.length > 0}
+				<td>
+					<div class="container_gap10">
+						{#each actions as action}
+							<button
+								on:click={() => {
+									dispatch('openModal' + action, { entityType: entityType, entity: dataEntry });
+								}}>{action}</button
+							>
+							{#if actions[actions.length - 1] !== action}
+								|
+							{/if}
+						{/each}
+					</div>
+				</td>
+			{/if}
+		</tr>
+	{/each}
 </table>
 
 <style>

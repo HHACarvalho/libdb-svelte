@@ -44,9 +44,10 @@
 		</div>
 		<TableDisplay
 			entityType={'bookEntry'}
-			dataEntries={data.bookEntries}
+			dataArray={data.bookEntries}
 			dataHeaders={['Id', 'ISBN', 'Availability', '']}
-			dataVariables={['id', 'isbn', 'isAvailable', 'options']}
+			dataVariables={['id', 'isbn', 'isAvailable']}
+			actions={['Borrow', 'Edit', 'Delete']}
 			on:openModalBorrow={openModalBorrow}
 			on:openModalEdit={openModalEdit}
 			on:openModalDelete={openModalDelete}
