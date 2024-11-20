@@ -62,26 +62,26 @@
 		border-radius: 10px;
 	}
 
-	.tr-data {
+	tr {
+		background: var(--dark-blue);
 		transition: 0.3s;
 	}
 
-	.tr-data:hover {
+	tr:nth-child(even) {
+		background: var(--background-blue);
+	}
+
+	tr:hover {
 		opacity: 0.75;
 	}
 
 	th,
 	td {
-		background-color: var(--dark-blue);
 		padding: 12px 24px;
 		text-align: left;
 	}
 
-	tr:nth-child(even) td {
-		background-color: var(--background-blue);
-	}
-
-	.Availability {
+	.container_gap10 {
 		align-items: center;
 		display: flex;
 		gap: 10px;
@@ -96,5 +96,10 @@
 
 	button:hover {
 		color: var(--light-purple);
+	}
+
+	svg {
+		height: 1em;
+		width: 1em;
 	}
 </style>
