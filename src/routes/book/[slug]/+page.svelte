@@ -43,10 +43,10 @@
 			</div>
 		</div>
 		<TableDisplay
+			entityType={'bookEntry'}
 			dataEntries={data.bookEntries}
 			dataHeaders={['Id', 'ISBN', 'Availability', '']}
 			dataVariables={['id', 'isbn', 'isAvailable', 'options']}
-			hyperlink={false}
 			on:openModalBorrow={openModalBorrow}
 			on:openModalEdit={openModalEdit}
 			on:openModalDelete={openModalDelete}

@@ -2,11 +2,10 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	//TODO: export let EntityType;
+	export let entityType;
 	export let dataEntries;
 	export let dataHeaders;
 	export let dataVariables;
-	export let hyperlink; //TODO: Find a better way
 </script>
 
 <table>
@@ -15,11 +14,15 @@
 			<th>{obj}</th>
 		{/each}
 	</tr>
-	{#if hyperlink}
+	{#if entityType === 'member'}
 		{#each dataEntries as obj}
 			<tr class="tr-data">
 				{#each dataVariables as e}
-					<td><a href="/member/{obj.id}">{obj[e]}</a></td>
+					{#if e === 'name'}
+						<td><a href="/member/{obj.id}">{obj[e]}</a></td>
+					{:else}
+						<td>{obj[e]}</td>
+					{/if}
 				{/each}
 			</tr>
 		{/each}

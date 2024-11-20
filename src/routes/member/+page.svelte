@@ -42,10 +42,10 @@
 	<div class="spacer-25"></div>
 
 	<TableDisplay
+		entityType={'member'}
 		dataEntries={data.array}
 		dataHeaders={['Id', 'Name', 'Email', 'Address', 'Phone Number']}
 		dataVariables={['id', 'name', 'email', 'address', 'phoneNumber']}
-		hyperlink={true}
 	/>
 
 	<div class="spacer-35"></div>
