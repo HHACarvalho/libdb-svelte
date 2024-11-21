@@ -5,13 +5,9 @@
 	export let data;
 	let modalCollection;
 
-	// function openModalBorrow(e) {
-	// 	modalCollection.openModalBorrow(e.detail);
-	// }
-
-	// function openModalEdit(e) {
-	// 	modalCollection.openModalEdit(e.detail);
-	// }
+	function openModalBorrow(e) {
+		modalCollection.openModalBorrow(e.detail);
+	}
 
 	function openModalDelete(e) {
 		modalCollection.openModalDelete(e.detail);
@@ -45,16 +41,15 @@
 		<TableDisplay
 			entityType={'bookEntry'}
 			dataArray={data.bookEntries}
-			dataHeaders={['Id', 'ISBN', 'Availability', '']}
+			dataHeaders={['Id', 'ISBN', 'Availability']}
 			dataVariables={['id', 'isbn', 'isAvailable']}
-			actions={['Borrow', 'Edit', 'Delete']}
+			actions={['Borrow', 'Delete']}
 			on:openModalBorrow={openModalBorrow}
-			on:openModalEdit={openModalEdit}
 			on:openModalDelete={openModalDelete}
 		/>
 	</div>
 
-	<ModalCollection bind:this={modalCollection} modalList={['borrow', 'edit', 'delete']} />
+	<ModalCollection bind:this={modalCollection} modalList={['borrow', 'delete']} />
 {/if}
 
 <style>
