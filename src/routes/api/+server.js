@@ -20,8 +20,9 @@ export async function DELETE({ request }) {
 async function callApi(request, requestType) {
 	try {
 		const data = await request.json();
+		const url = buildRequestUrl(data.entityType, data.entityId);
 
-		const apiResult = await serverApiRequest(data.entityType + '/' + data.entityId, requestType, data.body);
+		const apiResult = await serverApiRequest(url, requestType, data.body);
 		if (apiResult.error) {
 			return buildRequestResponse(apiResult, 400);
 		}
@@ -31,6 +32,10 @@ async function callApi(request, requestType) {
 		console.error(error);
 		return buildRequestResponse({ error: 'Internal Server Error' }, 500);
 	}
+}
+
+function buildRequestUrl(entityType, entityId) {
+	return entityType + (entityId ? '/' + entityId : '');
 }
 
 function buildRequestResponse(body, statusCode) {
