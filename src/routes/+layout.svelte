@@ -1,5 +1,5 @@
 <script>
-	import '$lib/global.css';
+	import '../app.css';
 	import Sidebar from '$lib/sidebar.svelte';
 </script>
 
@@ -21,6 +21,5 @@
 
 	main {
 		padding: 40px;
-		width: 100%;
 	}
 </style>

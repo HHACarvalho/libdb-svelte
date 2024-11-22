@@ -33,10 +33,10 @@
 
 <Modal bind:isActive>
 	<h1>Are you sure you want to delete?</h1>
-	<div class="spacer-10"></div>
+	<div class="spacer_10"></div>
 	<h3>You can't undo this action.</h3>
-	<div class="spacer-20"></div>
-	<div class="button-container">
+	<div class="spacer_20"></div>
+	<div class="button_container">
 		<button class="shadow" on:click={confirm}>Confirm</button>
 		<button class="shadow" on:click={cancel}>Cancel</button>
 	</div>

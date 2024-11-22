@@ -39,11 +39,11 @@
 {:else}
 	<Search on:searchSubmit={simpleSearchSubmit} on:pageSizeSubmit={pageSizeSubmit} pageTitle={'Books'} />
 
-	<div class="spacer-20"></div>
+	<div class="spacer_20"></div>
 
 	<ItemDisplay {data} type={'book'} />
 
-	<div class="spacer-30"></div>
+	<div class="spacer_30"></div>
 
 	<Pagination on:pageNumberSubmit={pageNumberSubmit} {pageNumber} {pageSize} totalCount={data.total} />
 {/if}

@@ -33,8 +33,8 @@
 	nav {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		flex-grow: 1;
+		justify-content: center;
 	}
 
 	nav a {
@@ -49,9 +49,9 @@
 	}
 
 	.options {
-		padding: 20px;
 		display: flex;
 		align-items: center;
+		padding: 20px;
 	}
 
 	.options img {

@@ -9,7 +9,7 @@
 	export let actions = [];
 </script>
 
-<table>
+<table class="standard_border">
 	<tr>
 		{#each dataHeaders as header}
 			<th>{header}</th>
@@ -27,7 +27,7 @@
 					{#if varName === 'name' && entityType === 'member'}
 						<a href="/member/{dataEntry.id}">{dataEntry[varName]}</a>
 					{:else if varName === 'isAvailable' && entityType === 'bookEntry'}
-						<div class="container_gap10">
+						<div class="table_container">
 							<p>{dataEntry[varName] ? 'Available' : 'Unavailable'}</p>
 							<svg viewBox="0 0 2 2">
 								<circle cx="1" cy="1" r="1" fill={dataEntry[varName] ? 'green' : 'red'} />
@@ -43,13 +43,12 @@
 
 			{#if actions.length > 0}
 				<td>
-					<div class="container_gap10">
+					<div class="table_container">
 						{#each actions as action}
 							<button
-								class="padding-0"
 								on:click={() => {
 									dispatch('openModal' + action, {
-										entityType: entityType === 'bookEntry' ? 'borrow' : entityType,
+										entityType: entityType,
 										entity: dataEntry,
 									});
 								}}>{action}</button
@@ -67,9 +66,8 @@
 
 <style>
 	table {
-		width: 100%;
-		border: 5px solid var(--darkest-blue);
 		border-radius: 10px;
+		text-align: left;
 	}
 
 	tr {
@@ -88,19 +86,19 @@
 	th,
 	td {
 		padding: 12px 24px;
-		text-align: left;
 	}
 
-	.container_gap10 {
-		align-items: center;
+	.table_container {
 		display: flex;
+		align-items: center;
 		gap: 10px;
 	}
 
 	button {
 		background: none;
-		font-size: 1em;
 		cursor: pointer;
+		font-size: 1em;
+		padding: 0;
 		transition: 0.3s;
 	}
 

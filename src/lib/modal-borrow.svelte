@@ -14,7 +14,7 @@
 		future.setDate(today.getDate() + 21);
 
 		const req = await apiRequest(url, 'POST', {
-			entityType: data.entityType,
+			entityType: 'borrow',
 			entityId: null,
 			body: {
 				bookEntryId: data.entity.id,
@@ -43,11 +43,13 @@
 
 <Modal bind:isActive>
 	<h1>Borrow</h1>
-	<div class="spacer-20"></div>
+	<div class="spacer_20"></div>
 	<h3>Member ID:</h3>
-	<div class="spacer-20"></div>
+	<div class="spacer_20"></div>
 	<input type="text" bind:value={memberId} />
-	<div class="spacer-20"></div>
-	<button on:click={confirm}>Confirm</button>
-	<button on:click={cancel}>Cancel</button>
+	<div class="spacer_20"></div>
+	<div class="button_container">
+		<button on:click={confirm}>Confirm</button>
+		<button on:click={cancel}>Cancel</button>
+	</div>
 </Modal>

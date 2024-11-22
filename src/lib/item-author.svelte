@@ -6,10 +6,10 @@
 
 <div class="item shadow">
 	<a href="/author/{id}">
-		<div class="image-wrapper">
+		<div class="image_wrapper">
 			<img src={imageUrl} alt={id} />
 		</div>
-		<div class="text-wrapper">
+		<div class="text_wrapper">
 			<p>{description}</p>
 		</div>
 	</a>
@@ -27,7 +27,7 @@
 		transform: scale(1.05);
 	}
 
-	.image-wrapper {
+	.image_wrapper {
 		height: 215px;
 	}
 
@@ -38,7 +38,7 @@
 		border-radius: 10px 10px 0 0;
 	}
 
-	.text-wrapper {
+	.text_wrapper {
 		height: 2.6em;
 		display: flex;
 		align-items: center;
@@ -51,6 +51,7 @@
 		text-align: center;
 
 		display: -webkit-box;
+		line-clamp: 2;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
 		text-overflow: ellipsis;

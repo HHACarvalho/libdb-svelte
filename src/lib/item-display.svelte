@@ -6,7 +6,7 @@
 	export let type;
 </script>
 
-<div class="item-display">
+<div class="item_display">
 	{#if type == 'author'}
 		{#each data.array as obj}
 			<ItemAuthor id={obj.id} imageUrl={obj.imageUrl} description={obj.name} />
@@ -25,7 +25,7 @@
 </div>
 
 <style>
-	.item-display {
+	.item_display {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 20px;

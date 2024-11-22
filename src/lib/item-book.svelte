@@ -7,14 +7,14 @@
 </script>
 
 <div class="item shadow">
-	<div class="author-wrapper">
+	<div class="author_wrapper">
 		<a href="/author/{authorId}">{authorName}</a>
 	</div>
 	<a href="/book/{id}">
-		<div class="image-wrapper">
+		<div class="image_wrapper">
 			<img src={imageUrl} alt={id} />
 		</div>
-		<div class="title-wrapper">
+		<div class="title_wrapper">
 			<p>{description}</p>
 		</div>
 	</a>
@@ -23,7 +23,7 @@
 <style>
 	.item {
 		width: 185px;
-		background-color: var(--dark-blue);
+		background: var(--dark-blue);
 		border-radius: 10px;
 		transition: 0.2s;
 	}
@@ -32,25 +32,25 @@
 		transform: scale(1.05);
 	}
 
-	.author-wrapper {
+	.author_wrapper {
 		display: flex;
 		justify-content: center;
 		padding: 8px 16px;
 	}
 
-	.image-wrapper {
+	.image_wrapper {
 		height: 215px;
 		display: flex;
 		justify-content: center;
 	}
 
-	.image-wrapper img {
+	.image_wrapper img {
 		height: 100%;
 		border-radius: 10px;
 		box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
 	}
 
-	.title-wrapper {
+	.title_wrapper {
 		height: 2.6em;
 		display: flex;
 		align-items: center;
@@ -58,11 +58,12 @@
 		padding: 8px 16px;
 	}
 
-	.title-wrapper p {
+	.title_wrapper p {
 		line-height: 1.3em;
 		text-align: center;
 
 		display: -webkit-box;
+		line-clamp: 2;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
 		text-overflow: ellipsis;
