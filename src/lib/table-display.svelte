@@ -14,6 +14,10 @@
 		{#each dataHeaders as header}
 			<th>{header}</th>
 		{/each}
+
+		{#if actions.length > 0}
+			<th></th>
+		{/if}
 	</tr>
 
 	{#each dataArray as dataEntry}
@@ -29,6 +33,8 @@
 								<circle cx="1" cy="1" r="1" fill={dataEntry[varName] ? 'green' : 'red'} />
 							</svg>
 						</div>
+					{:else if varName === 'fine' && entityType === 'borrow'}
+						{dataEntry[varName]} €
 					{:else}
 						{dataEntry[varName]}
 					{/if}
@@ -41,7 +47,10 @@
 						{#each actions as action}
 							<button
 								on:click={() => {
-									dispatch('openModal' + action, { entityType: entityType, entity: dataEntry });
+									dispatch('openModal' + action, {
+										entityType: entityType === 'bookEntry' ? 'borrow' : entityType,
+										entity: dataEntry,
+									});
 								}}>{action}</button
 							>
 							{#if actions[actions.length - 1] !== action}
