@@ -33,17 +33,11 @@
 
 <Modal bind:isActive>
 	<h1>Are you sure you want to delete?</h1>
+	<div class="spacer-10"></div>
 	<h3>You can't undo this action.</h3>
-	<div class="spacer-25"></div>
-	<button on:click={confirm}>Confirm</button>
-	<button on:click={cancel}>Cancel</button>
+	<div class="spacer-20"></div>
+	<div class="button-container">
+		<button class="shadow" on:click={confirm}>Confirm</button>
+		<button class="shadow" on:click={cancel}>Cancel</button>
+	</div>
 </Modal>
-
-<style>
-	button {
-		background-color: var(--background-blue);
-		border-radius: 10px;
-		font-size: 1em;
-		padding: 10px;
-	}
-</style>

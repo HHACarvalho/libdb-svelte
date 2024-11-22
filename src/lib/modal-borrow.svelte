@@ -43,30 +43,11 @@
 
 <Modal bind:isActive>
 	<h1>Borrow</h1>
-	<div class="spacer-25"></div>
+	<div class="spacer-20"></div>
 	<h3>Member ID:</h3>
-	<div class="spacer-25"></div>
+	<div class="spacer-20"></div>
 	<input type="text" bind:value={memberId} />
-	<div class="spacer-25"></div>
+	<div class="spacer-20"></div>
 	<button on:click={confirm}>Confirm</button>
 	<button on:click={cancel}>Cancel</button>
 </Modal>
-
-<style>
-	button {
-		background-color: var(--background-blue);
-		border-radius: 10px;
-		font-size: 1em;
-		padding: 10px;
-	}
-
-	input {
-		background-color: var(--background-blue);
-		border-radius: 30px;
-		padding: 10px 20px;
-	}
-
-	input::placeholder {
-		color: rgb(225, 225, 225);
-	}
-</style>

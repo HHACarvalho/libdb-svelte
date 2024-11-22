@@ -53,7 +53,7 @@
 	}
 
 	button {
-		background-color: var(--dark-blue);
+		background: var(--dark-blue);
 		border-radius: 5px;
 		font-size: 1em;
 		padding: 10px 15px;
@@ -61,11 +61,11 @@
 	}
 
 	.disabled {
-		background-color: var(--light-purple);
+		background: var(--light-purple);
 	}
 
 	button:hover {
-		background-color: var(--light-purple);
+		background: var(--light-purple);
 	}
 
 	img {

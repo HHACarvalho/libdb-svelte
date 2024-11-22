@@ -17,7 +17,7 @@
 		top: 0;
 		display: flex;
 		flex-direction: column;
-		background-color: var(--background-blue);
+		background: var(--darkest-blue);
 		height: 100vh;
 	}
 
@@ -44,7 +44,7 @@
 	}
 
 	nav a:hover {
-		background-color: var(--light-purple);
+		background: var(--light-purple);
 		color: black;
 	}
 

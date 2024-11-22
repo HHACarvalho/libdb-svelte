@@ -18,7 +18,7 @@
 <style>
 	.item {
 		width: 185px;
-		background-color: var(--dark-blue);
+		background: var(--dark-blue);
 		border-radius: 10px;
 		transition: 0.2s;
 	}

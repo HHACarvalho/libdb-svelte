@@ -43,20 +43,4 @@
 		align-items: center;
 		gap: 20px;
 	}
-
-	input {
-		background-color: var(--background-blue);
-		border-radius: 30px;
-		padding: 10px 20px;
-	}
-
-	input::placeholder {
-		color: rgb(225, 225, 225);
-	}
-
-	select {
-		background-color: var(--background-blue);
-		border-radius: 5px;
-		padding: 10px;
-	}
 </style>

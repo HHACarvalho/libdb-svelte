@@ -29,6 +29,7 @@
 
 	.modal-content {
 		background: var(--darker-blue);
+		border: 5px solid var(--darkest-blue);
 		border-radius: 10px;
 		padding: 20px;
 	}

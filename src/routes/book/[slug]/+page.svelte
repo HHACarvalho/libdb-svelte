@@ -66,7 +66,7 @@
 
 	.pad {
 		display: flex;
-		background-color: var(--background-blue);
+		background: var(--darkest-blue);
 		border-radius: 10px;
 		padding: 40px;
 	}

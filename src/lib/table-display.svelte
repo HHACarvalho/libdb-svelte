@@ -46,6 +46,7 @@
 					<div class="container_gap10">
 						{#each actions as action}
 							<button
+								class="padding-0"
 								on:click={() => {
 									dispatch('openModal' + action, {
 										entityType: entityType === 'bookEntry' ? 'borrow' : entityType,
@@ -67,7 +68,7 @@
 <style>
 	table {
 		width: 100%;
-		border: 5px solid var(--background-blue);
+		border: 5px solid var(--darkest-blue);
 		border-radius: 10px;
 	}
 
@@ -77,7 +78,7 @@
 	}
 
 	tr:nth-child(even) {
-		background: var(--background-blue);
+		background: var(--darkest-blue);
 	}
 
 	tr:hover {
