@@ -20,10 +20,10 @@
 		dataModalInfo = data;
 		isActiveModalInfo = true;
 	};
-	export function openModalBorrow(data) {
+	export const openModalBorrow = (data) => {
 		dataModalBorrow = data;
 		isActiveModalBorrow = true;
-	}
+	};
 	export function openModalEdit(data) {
 		dataModalEdit = data;
 		isActiveModalEdit = true;
@@ -38,7 +38,7 @@
 	<ModalInfo bind:isActive={isActiveModalInfo} bind:data={dataModalInfo} />
 
 	{#if modalList.includes('borrow')}
-		<ModalBorrow bind:isActive={isActiveModalBorrow} bind:data={dataModalBorrow} />
+		<ModalBorrow bind:isActive={isActiveModalBorrow} bind:data={dataModalBorrow} {openModalInfo} />
 	{/if}
 
 	<!--{#if modalList.includes('edit')}

@@ -5,6 +5,7 @@
 
 	export let isActive;
 	export let data;
+	export let openModalInfo;
 	let memberId;
 
 	async function confirm() {
@@ -27,11 +28,9 @@
 		cancel();
 
 		if (req.error) {
-			//TODO: Display an error message
-			console.error(req.error);
+			openModalInfo({ info: req.error });
 		} else {
-			//TODO: Reloading makes it impossible to display a successful message
-			location.reload();
+			location.reload(); //TODO: Reloading makes it impossible to display a successful message
 		}
 	}
 
