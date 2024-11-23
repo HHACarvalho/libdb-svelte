@@ -11,7 +11,13 @@
 </script>
 
 <Modal bind:isActive>
-	<h2>{data.info}</h2>
+	{#if data.error}
+		<h2>Failed to execute task</h2>
+		<div class="spacer_10"></div>
+		<h4>{data.error}</h4>
+	{:else}
+		<h3>{data.info}</h3>
+	{/if}
 	<div class="spacer_20"></div>
 	<button on:click={close}>Close</button>
 </Modal>

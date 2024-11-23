@@ -28,7 +28,7 @@
 		cancel();
 
 		if (req.error) {
-			openModalInfo({ info: req.error });
+			openModalInfo({ error: req.error });
 		} else {
 			location.reload(); //TODO: Reloading makes it impossible to display a successful message
 		}
@@ -41,14 +41,24 @@
 </script>
 
 <Modal bind:isActive>
-	<h1>Borrow</h1>
+	<h2>Who will be borrowing the book?</h2>
 	<div class="spacer_20"></div>
-	<h3>Member ID:</h3>
-	<div class="spacer_20"></div>
-	<input type="text" bind:value={memberId} />
+	<div class="container">
+		<h4>Member ID:</h4>
+		<input type="text" bind:value={memberId} />
+	</div>
 	<div class="spacer_20"></div>
 	<div class="button_container">
 		<button on:click={confirm}>Confirm</button>
 		<button on:click={cancel}>Cancel</button>
 	</div>
 </Modal>
+
+<style>
+	.container {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		justify-content: center;
+	}
+</style>
