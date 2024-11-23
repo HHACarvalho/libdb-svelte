@@ -1,4 +1,6 @@
 <script>
+	import { fade, scale } from 'svelte/transition';
+
 	export let isActive;
 
 	function closeModal() {
@@ -7,8 +9,16 @@
 </script>
 
 {#if isActive}
-	<button class="modal_background" on:click|stopPropagation={closeModal}>
-		<button class="modal_content standard_border" on:click|stopPropagation={() => {}}>
+	<button
+		class="modal_background"
+		on:click|stopPropagation={closeModal}
+		transition:fade={{ duration: 200, easing: (t) => t * t }}
+	>
+		<button
+			class="modal_content standard_border"
+			on:click|stopPropagation={() => {}}
+			transition:scale={{ duration: 200, easing: (t) => t * t }}
+		>
 			<slot></slot>
 		</button>
 	</button>
