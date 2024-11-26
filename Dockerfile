@@ -25,7 +25,7 @@ RUN npm install --production
 FROM node:18-alpine AS runtime
 WORKDIR /app/
 
-# Copy the published application, the package.json and the production dependencies
+# Copy the published application, package.json and production dependencies
 COPY --from=build_application /app/build/ ./
 COPY --from=build_dependencies /app/package.json ./
 COPY --from=build_dependencies /app/node_modules/ ./node_modules/
