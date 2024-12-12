@@ -10,58 +10,61 @@
 </script>
 
 <table class="standard_border">
-	<tr>
-		{#each dataHeaders as header}
-			<th>{header}</th>
-		{/each}
-
-		{#if actions.length > 0}
-			<th></th>
-		{/if}
-	</tr>
-
-	{#each dataArray as dataEntry}
+	<thead>
 		<tr>
-			{#each dataVariables as varName}
-				<td>
-					{#if varName === 'name' && entityType === 'member'}
-						<a href="/member/{dataEntry.id}">{dataEntry[varName]}</a>
-					{:else if varName === 'isAvailable' && entityType === 'bookEntry'}
-						<div class="table_container">
-							<p>{dataEntry[varName] ? 'Available' : 'Unavailable'}</p>
-							<svg viewBox="0 0 2 2">
-								<circle cx="1" cy="1" r="1" fill={dataEntry[varName] ? 'green' : 'red'} />
-							</svg>
-						</div>
-					{:else if varName === 'fine' && entityType === 'borrow'}
-						{dataEntry[varName]} €
-					{:else}
-						{dataEntry[varName]}
-					{/if}
-				</td>
+			{#each dataHeaders as header}
+				<th>{header}</th>
 			{/each}
 
 			{#if actions.length > 0}
-				<td>
-					<div class="table_container">
-						{#each actions as action}
-							<button
-								on:click={() => {
-									dispatch('openModal' + action, {
-										entityType: entityType,
-										entity: dataEntry,
-									});
-								}}>{action}</button
-							>
-							{#if actions[actions.length - 1] !== action}
-								|
-							{/if}
-						{/each}
-					</div>
-				</td>
+				<th></th>
 			{/if}
 		</tr>
-	{/each}
+	</thead>
+	<tbody>
+		{#each dataArray as dataEntry}
+			<tr>
+				{#each dataVariables as varName}
+					<td>
+						{#if varName === 'name' && entityType === 'member'}
+							<a href="/member/{dataEntry.id}">{dataEntry[varName]}</a>
+						{:else if varName === 'isAvailable' && entityType === 'bookEntry'}
+							<div class="table_container">
+								<p>{dataEntry[varName] ? 'Available' : 'Unavailable'}</p>
+								<svg viewBox="0 0 2 2">
+									<circle cx="1" cy="1" r="1" fill={dataEntry[varName] ? 'green' : 'red'} />
+								</svg>
+							</div>
+						{:else if varName === 'fine' && entityType === 'borrow'}
+							{dataEntry[varName]} €
+						{:else}
+							{dataEntry[varName]}
+						{/if}
+					</td>
+				{/each}
+
+				{#if actions.length > 0}
+					<td>
+						<div class="table_container">
+							{#each actions as action}
+								<button
+									on:click={() => {
+										dispatch('openModal' + action, {
+											entityType: entityType,
+											entity: dataEntry
+										});
+									}}>{action}</button
+								>
+								{#if actions[actions.length - 1] !== action}
+									|
+								{/if}
+							{/each}
+						</div>
+					</td>
+				{/if}
+			</tr>
+		{/each}
+	</tbody>
 </table>
 
 <style>
@@ -75,11 +78,11 @@
 		transition: 0.3s;
 	}
 
-	tr:nth-child(even) {
+	tbody tr:nth-child(odd) {
 		background: var(--darkest-blue);
 	}
 
-	tr:hover {
+	tbody tr:hover {
 		opacity: 0.75;
 	}
 
